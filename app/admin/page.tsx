@@ -144,7 +144,7 @@ export default function AdminPage() {
                               )}
                             >
                               <CalendarIcon className="mr-2 h-4 w-4" />
-                              {selectedDate ? format(selectedDate, "PPP") : t("admin.pickADate")}
+                              {selectedDate ? selectedDate.toLocaleDateString() : t("admin.pickADate")}
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
