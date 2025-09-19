@@ -144,19 +144,11 @@ export default function AdminPage() {
                               )}
                             >
                               <CalendarIcon className="mr-2 h-4 w-4" />
-                              {selectedDate ? selectedDate.toLocaleDateString() : t("admin.pickADate")}
+                              {selectedDate ? format(selectedDate, "PPP") : t("admin.pickADate")}
                             </Button>
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
-                            <Calendar
-                              mode="single"
-                              selected={selectedDate}
-                              onSelect={(date) => {
-                                console.log("Picked date:", date) // Debug log
-                                setSelectedDate(date)
-                              }}
-                              initialFocus
-                            />
+                            <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} initialFocus />
                           </PopoverContent>
                         </Popover>
                       </div>
