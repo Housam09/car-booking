@@ -149,15 +149,14 @@ export default function AdminPage() {
                           </PopoverTrigger>
                           <PopoverContent className="w-auto p-0" align="start">
                             <Calendar
-  mode="single"
-  selected={selectedDate}
-  onSelect={(date) => {
-    console.log("Picked date:", date) // Debug log
-    setSelectedDate(date)
-  }}
-  initialFocus
-/>
-
+                              mode="single"
+                              selected={selectedDate}
+                              onSelect={(date) => {
+                                console.log("Picked date:", date) // Debug log
+                                setSelectedDate(date)
+                              }}
+                              initialFocus
+                            />
                           </PopoverContent>
                         </Popover>
                       </div>
