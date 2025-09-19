@@ -134,15 +134,25 @@ export default function AdminPage() {
                     <div className="space-y-4 mt-4">
                       <div>
                         <Label>{t("admin.date")}</Label>
-                        <Calendar 
-                          mode="single" 
-                          selected={selectedDate} 
-                          onSelect={(date) => {
-                            console.log("Selected:", date)
-                           setSelectedDate(date)
-                        }} 
-                      />
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className={cn(
+                                "w-full justify-start text-left font-normal mt-2",
+                                !selectedDate && "text-muted-foreground",
+                              )}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {selectedDate ? format(selectedDate, "PPP") : t("admin.pickADate")}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} initialFocus />
+                          </PopoverContent>
+                        </Popover>
                       </div>
+
                       <div>
                         <Label>{t("admin.time")}</Label>
                         <Select value={selectedTime} onValueChange={setSelectedTime}>
